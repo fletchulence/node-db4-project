@@ -6,4 +6,9 @@ server.use(express.json());
 
 server.use('/api/recipes', recipesRouter)
 
+server.use('*', (req, res)=>{
+   res.json({ api: 'up and running'})
+})
+
+
 module.exports = server
