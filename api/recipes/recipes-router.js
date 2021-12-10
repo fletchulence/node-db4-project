@@ -1,7 +1,11 @@
 const router = require('express').Router();
 
-router.get('/', (req, res, next)=>{
-   console.log('router is routed')
+// router.get('/', (req, res, next)=>{
+//    console.log('router is routed')
+// })
+
+router.use('*', (req, res)=>{
+   res.json({ api: 'up and running'})
 })
 
 router.use((err, req, res, next) => { // eslint-disable-line
