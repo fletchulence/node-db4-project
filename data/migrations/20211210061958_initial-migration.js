@@ -6,20 +6,21 @@ exports.up = async function(knex) {
   // start with tables without FK's 
 
   // first one has least to do with the others
-   .createTable('recipes', table =>{
-      table.increments()
+   .createTable('recipes', tbl =>{
+      tbl.increments('recipe_id') // colm name that's goof for the whole db
+      tbl.string('recipe_name', 200).notNullable().unique()
    })
    // next one only have one connection too
-   .createTable('ingredients', table =>{
-      table.increments()
+   .createTable('ingredients', tbl =>{
+      tbl.increments()
    })
    // this one needs only the recipes
-   .createTable('steps', table =>{
-      table.increments()
+   .createTable('steps', tbl =>{
+      tbl.increments()
    })
    // this one needs all of them
-   .createTable('steps_ingredients', table =>{
-      table.increments()
+   .createTable('steps_ingredients', tbl =>{
+      tbl.increments()
    })
 };
 
